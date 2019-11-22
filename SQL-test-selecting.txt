@@ -1,0 +1,18 @@
+############# Task 1 ########
+
+SELECT Country.CountryID, Country.Name FROM Country
+INNER JOIN City 
+ON Country.CountryID = City.CountryID 
+GROUP BY City.CountryID
+HAVING SUM(City.Population) > 400;
+
+
+############## Task 2 ########
+
+SELECT Country.Name FROM Country
+LEFT JOIN City 
+ON Country.CountryID = City.CountryID 
+LEFT JOIN Building 
+ON City.CityID = Building.CityID
+GROUP BY Country.CountryID
+HAVING COUNT(Building.BuildingID) = 0;

@@ -1,0 +1,38 @@
+create table Country (CountryID INT PRIMARY KEY, Name VARCHAR(20));
+
+create table City (CityID INT PRIMARY KEY, CountryID INT, Name VARCHAR(20), Population INT, FOREIGN KEY(CountryID) REFERENCES Country(CountryID));
+
+create table Building (BuildingID INT PRIMARY KEY, CityID INT, Name VARCHAR(20), Floors INT, FOREIGN KEY (CityID) REFERENCES City(CityID));
+
+
+
+
+INSERT INTO Country VALUES(1, 'Polska');
+INSERT INTO Country VALUES(2, 'Niemcy');
+INSERT INTO Country VALUES(3, 'Francja');
+INSERT INTO Country VALUES(4, 'Wlochy');
+
+
+
+INSERT INTO City VALUES(1, 1, 'Krakow', 100);
+INSERT INTO City VALUES(2, 1, 'Warszawa', 400);
+INSERT INTO City VALUES(3, 1, 'Wroclaw', 300);
+
+INSERT INTO City VALUES(4, 2, 'Berlin', 100);
+INSERT INTO City VALUES(5, 2, 'Frankfurt', 200);
+INSERT INTO City VALUES(6, 2, 'Monachium', 100);
+
+INSERT INTO City VALUES(7, 3, 'Paryz', 200);
+INSERT INTO City VALUES(8, 3, 'Nicea', 100);
+INSERT INTO City VALUES(9, 3, 'Wersal', 50);
+
+INSERT INTO City VALUES(10, 4, 'Rzym', 300);
+INSERT INTO City VALUES(11, 4, 'Wenecja', 100);
+INSERT INTO City VALUES(12, 4, 'Neapol', 200);
+
+
+
+
+INSERT INTO Building VALUES(1, 2, 'Palac kultury', 20);
+INSERT INTO Building VALUES(2, 7, 'Wieza Eifla', 100);
+
